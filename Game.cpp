@@ -46,9 +46,10 @@ void Game::GameLoop()
 		}
 		case Game::Playing:
 		{
-							  _mainWindow.clear(sf::Color(0, 0, 0, 0));
-							  _mainWindow.display();
+							  _mainWindow.clear();
+
 							  _player1.Draw(_mainWindow);
+							  _mainWindow.display(); //Need to draw first, then display
 
 							  if (currentEvent.type == sf::Event::Closed)
 							  {
