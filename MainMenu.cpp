@@ -11,7 +11,7 @@ MainMenu::MenuResult MainMenu::Show(sf::RenderWindow& window)
 	sf::Sprite sprite(image);
 
 	//Setup clickable regions
-
+	//test
 	//Play menu item coordinates
 	MenuItem playButton;
 	playButton.rect.width = 300;
