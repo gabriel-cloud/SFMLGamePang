@@ -42,40 +42,38 @@ bool Game::IsExiting()
 void Game::GameLoop()
 {
 	sf::Event currentEvent;
-	while (_mainWindow.pollEvent(currentEvent))
-	{
+	_mainWindow.pollEvent(currentEvent);
 
-		switch (_gameState)
-		{
-		case Game::ShowingMenu:
-		{
+
+	switch (_gameState)
+	{
+	case Game::ShowingMenu:
+	{
 							  ShowMenu();
 							  break;
-		}
-		case Game::Playing:
-		{
-							  _mainWindow.clear();
+	}
+	case Game::ShowingSplash:
+	{
+								ShowSplashScreen();
+								break;
+	}
+	case Game::Playing:
+	{
+						  _mainWindow.clear(sf::Color(0, 0, 0));
 
-							  _gameObjectManager.UpdateAll();
-							  _gameObjectManager.DrawAll(_mainWindow);
-							  _mainWindow.display();
+						  _gameObjectManager.UpdateAll();
+						  _gameObjectManager.DrawAll(_mainWindow);
 
-							  if (currentEvent.type == sf::Event::Closed)
-							  {
-								  _gameState = Game::Exiting;
-							  }
-							  break;
-		}
-		case Game::ShowingSplash:
-		{
-							ShowSplashScreen();
-							break;
-		}
-		case Game::Options:
-							gOptions();
-							_gameState = Game::Options;
-							break;
-		}
+						  _mainWindow.display();
+						  if (currentEvent.type == sf::Event::Closed) _gameState = Game::Exiting;
+
+						  if (currentEvent.type == sf::Event::KeyPressed)
+						  {
+							  if (currentEvent.key.code == sf::Keyboard::Escape) ShowMenu();
+						  }
+
+						  break;
+	}
 	}
 }
 
