@@ -16,12 +16,13 @@ void Game::Start(void)
 	player1->SetPosition((SCREEN_WIDTH / 2) - 45, 700);
 
 	GameBall *ball = new GameBall();
+
 	ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
 
 	_gameObjectManager.Add("Ball", ball);
 	_gameObjectManager.Add("Paddle1", player1);
 	
-	_gameState = Game::ShowingSplash;
+	_gameState = Game::Playing;
 
 	while (!IsExiting())
 	{
@@ -37,6 +38,23 @@ bool Game::IsExiting()
 		return true;
 	else
 		return false;
+}
+
+const GameObjectManager& Game::GetGameObjectManager()
+{
+	return Game::_gameObjectManager;
+}
+
+sf::RenderWindow& Game::GetWindow()
+{
+	return _mainWindow;
+}
+
+const sf::Event& Game::GetInput()
+{
+	sf::Event currentEvent;
+	_mainWindow.pollEvent(currentEvent);
+	return currentEvent;
 }
 
 void Game::GameLoop()
