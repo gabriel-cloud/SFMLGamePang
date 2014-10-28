@@ -13,7 +13,7 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
 //	renderWindow.draw(sprite);
 //	renderWindow.display();
 	renderWindow.setFramerateLimit(60);
-	sf::Event event;
+//	sf::Event event;
 
 	while (true)
 	{
@@ -43,7 +43,7 @@ void SplashScreen::Show2(sf::RenderWindow & renderWindow)
 	//	renderWindow.draw(sprite);
 	//	renderWindow.display();
 	renderWindow.setFramerateLimit(60);
-	sf::Event event;
+//	sf::Event event;
 
 	while (true)
 	{

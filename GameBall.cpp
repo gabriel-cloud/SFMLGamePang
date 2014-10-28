@@ -3,7 +3,7 @@
 #include "Game.h"
 
 GameBall::GameBall() :
-_velocity(260.0f),
+_velocity(400.0f),
 _elapsedTimeSinceStart(0.0f)
 {
 	Load("images/ball.png");
@@ -57,8 +57,6 @@ void GameBall::Update(float elapsedTime)
 		{
 			_angle = 360.0f - (_angle - 180.0f);
 			if (_angle > 360.0f) _angle -= 360.0f;
-
-
 
 			moveByY = -moveByY;
 

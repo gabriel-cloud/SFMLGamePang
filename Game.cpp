@@ -19,10 +19,23 @@ void Game::Start(void)
 
 	ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
 
-	_gameObjectManager.Add("Ball", ball);
+	//GameBall *ball1 = new GameBall();
+
+	//ball1->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
+
+	//_gameObjectManager.Add("Ball1", ball1);
+
+	//GameBall *ball2 = new GameBall();
+
+	//ball2->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
+
+	//_gameObjectManager.Add("Ball2", ball2);
+
 	_gameObjectManager.Add("Paddle1", player1);
-	
-	_gameState = Game::Playing;
+	_gameObjectManager.Add("Ball", ball);
+
+	_gameState = Game::ShowingSplash;
+
 
 	while (!IsExiting())
 	{
@@ -116,6 +129,7 @@ void Game::ShowMenu()
 		_gameState = Game::Exiting;
 		break;
 	case MainMenu::Play:
+		_gameObjectManager.ResetClock();
 		_gameState = Game::Playing;
 		break;
 	case MainMenu::Options:

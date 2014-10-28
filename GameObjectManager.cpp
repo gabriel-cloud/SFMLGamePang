@@ -52,6 +52,11 @@ void GameObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 	}
 }
 
+void GameObjectManager::ResetClock()
+{
+	clock.restart();
+}
+
 void GameObjectManager::UpdateAll()
 {
 	std::map<std::string, VisibleGameObject*>::const_iterator itr = _gameObjects.begin();

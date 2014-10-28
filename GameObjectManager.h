@@ -14,6 +14,7 @@ public:
 
 	void DrawAll(sf::RenderWindow& renderWindow);
 	void UpdateAll();
+	void ResetClock();
 private:
 	std::map<std::string, VisibleGameObject*> _gameObjects;
 
