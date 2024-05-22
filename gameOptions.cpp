@@ -19,3 +19,5 @@ void GameOptions::ShowOptions(sf::RenderWindow& window)
 		}
 	}
 }
+
+//asdasd
